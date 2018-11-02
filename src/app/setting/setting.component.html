@@ -4,13 +4,13 @@
     <form [formGroup]="settingsForm" (ngSubmit)="settings(settingsForm.value)">
       <div class="form-group">
         <input type="text" class="form-control" formControlName="city" [class.is-invalid]="city.invalid && city.touched" name="city" placeholder="city">
-        <div *ngIf="city.invalid && city.touched">
+        <div *ngIf="city.invalid && city.touched || submitted">
           <small class="text-danger" *ngIf="city.errors?.required">Please enter city</small>
         </div>
       </div>
       <div class="form-group">
           <input type="text" class="form-control" formControlName="code" name="code" placeholder="code" [class.is-invalid]="code.invalid && code.touched">
-          <div *ngIf="code.invalid && code.touched">
+          <div *ngIf="code.invalid && code.touched || submitted">
             <small class="text-danger" *ngIf="code.errors?.required">Please enter code</small>
           </div>
       </div>

@@ -1,13 +1,21 @@
-<div class="container">
-  <div class="info">
-    <h3>City: {{weather.city.name}}</h3>
-    <p>Code: {{weather.city.country}}</p>
-    <p>Latitude: {{weather.city.coord.lat}}</p>
-    <p>Longitude: {{weather.city.coord.lon}}</p>
-    <p>Temperature: {{temp}} &#176;C</p>
-    <p>Temperature max: {{temp_max}} &#176;C</p>
-    <p>Temperature min: {{temp_min}} &#176;C</p>
-    <p>Description: {{weather.list[0].weather[0].description}}</p>
-
+<div class="container m-5 w-50 mx-auto">
+  <div *ngIf="isError === true" class="w-50 mx-auto text-center card bg-danger">
+      <p class="text-white card-body">{{error_message}}</p>
+  </div>
+  <div class="card img-fluid" style="width:500px">
+    <img class="card-img-top" src="{{srcImage}}" alt="Card image">
+    <div class="card-img-overlay">
+      <h4 class="card-title text-white">Weather Report</h4>
+      <div class="card-text">
+        <h5 class="text-white">City: {{weather.city.name}}</h5>
+        <p>Code: {{weather.city.country}}</p>
+        <p>Latitude: {{weather.city.coord.lat}}</p>
+        <p>Longitude: {{weather.city.coord.lon}}</p>
+        <p>Temperature: {{temp}} &#176;C</p>
+        <p>Temperature max: {{temp_max}} &#176;C</p>
+        <p>Temperature min: {{temp_min}} &#176;C</p>
+        <p>Description: {{weather.list[0].weather[0].description}}</p>
+      </div>
+    </div>
   </div>
 </div>

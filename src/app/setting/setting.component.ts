@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class SettingComponent implements OnInit {
 
   settingsForm: FormGroup;
+  submitted = false;
 
   get city() {
     return this.settingsForm.get('city');
@@ -29,12 +30,18 @@ export class SettingComponent implements OnInit {
   }
 
   settings(formData) {
+    this.submitted = true;
     let location = {
       city:formData.city,
       code:formData.code
     }
     localStorage.setItem('location',JSON.stringify(location));
-    this.router.navigate(['/home']);
+
+    if (this.settingsForm.invalid) {
+      return;
+     } else {
+     this.router.navigate(['/home']);
+    }
   }
 
 }
