@@ -1,0 +1,20 @@
+<div class="container">
+  <h3 class="text-center">Enter city and code</h3>
+  <div class="center-form">
+    <form [formGroup]="settingsForm" (ngSubmit)="settings(settingsForm.value)">
+      <div class="form-group">
+        <input type="text" class="form-control" formControlName="city" [class.is-invalid]="city.invalid && city.touched" name="city" placeholder="city">
+        <div *ngIf="city.invalid && city.touched">
+          <small class="text-danger" *ngIf="city.errors?.required">Please enter city</small>
+        </div>
+      </div>
+      <div class="form-group">
+          <input type="text" class="form-control" formControlName="code" name="code" placeholder="code" [class.is-invalid]="code.invalid && code.touched">
+          <div *ngIf="code.invalid && code.touched">
+            <small class="text-danger" *ngIf="code.errors?.required">Please enter code</small>
+          </div>
+      </div>
+      <button class="btn btn-success">Save changes</button>
+    </form>
+  </div>
+</div>

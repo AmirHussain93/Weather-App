@@ -1,5 +1,13 @@
 <div class="container">
-  <h4 class="text-center">
-    Weather Report
-  </h4>
+  <div class="info">
+    <h3>City: {{weather.city.name}}</h3>
+    <p>Code: {{weather.city.country}}</p>
+    <p>Latitude: {{weather.city.coord.lat}}</p>
+    <p>Longitude: {{weather.city.coord.lon}}</p>
+    <p>Temperature: {{temp}} &#176;C</p>
+    <p>Temperature max: {{temp_max}} &#176;C</p>
+    <p>Temperature min: {{temp_min}} &#176;C</p>
+    <p>Description: {{weather.list[0].weather[0].description}}</p>
+
+  </div>
 </div>
